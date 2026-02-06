@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Andrew Nuisud</title>
-  <meta name="description" content="Andrew Nuisud — CS & Math @ Boston University. I build fast tools across Java, Python, C++, Spring Boot, and low-latency systems." />
+  <meta
+    name="description"
+    content="Andrew Nuisud — CS @ Boston University. Backend systems, distributed systems, low-latency. Java, Python, TypeScript, C++, Spring Boot."
+  />
   <style>
     :root {
       --bg: #ffffff;
@@ -52,7 +55,7 @@
     }
 
     .container {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
       padding: 24px;
       display: grid;
@@ -64,7 +67,7 @@
 
     main { width: 100%; }
     h1 { font-size: clamp(22px, 5vw, 22px); line-height: 1.1; margin: 0 0 8px; letter-spacing: 0.2px; }
-    .subtitle { color: var(--muted); margin: 0 0 24px; font-size: 0.98rem; }
+    .subtitle { color: var(--muted); margin: 0 0 22px; font-size: 0.98rem; }
 
     .grid { display: grid; gap: 14px; }
     .row { display: flex; gap: 10px; align-items: baseline; }
@@ -88,92 +91,162 @@
     .links { display: flex; flex-wrap: wrap; gap: 10px 12px; }
     .muted { color: var(--muted); }
 
-    footer { margin-top: 28px; font-size: 0.95rem; color: var(--muted); display: grid; gap: 6px; }
+    footer { margin-top: 26px; font-size: 0.95rem; color: var(--muted); display: grid; gap: 6px; }
 
-    .actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0 4px; }
-    .btn {
-      padding: 8px 12px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: var(--card);
-      cursor: pointer;
-      color: var(--fg);
-      font-size: 0.95rem;
-    }
-    .btn:hover { filter: brightness(1.05); }
     .note { font-size: 0.9rem; color: var(--muted); }
 
-    /* Small card rows for projects */
-    .project { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: baseline; }
-    .project a { border-bottom: none; }
+    /* Small card rows for projects/experience */
+    .item { display: grid; gap: 4px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 14px; background: var(--card); }
+    .itemTop { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: baseline; }
+    .itemTop a { border-bottom: none; }
+    .meta { color: var(--muted); font-size: 0.93rem; }
     .metrics { color: var(--muted); font-size: 0.95rem; }
+    .stack { color: var(--muted); font-size: 0.92rem; }
 
-    /* Focus list tweaks */
     .focus { display: flex; flex-wrap: wrap; gap: 8px; }
 
-    /* Reduce motion preference */
     @media (prefers-reduced-motion: reduce) {
       #starfield { display: none; }
     }
   </style>
 </head>
 <body>
-  <!-- Starfield background layer -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
 
   <div class="container">
     <main>
       <header>
         <h1>Andrew Nuisud</h1>
-        <p class="subtitle">cs & math @ boston university</p>
+        <p class="subtitle">cs @ boston university · boston, ma · us citizen</p>
       </header>
 
       <section class="grid" aria-label="about">
         <div class="row">
           <div class="label">About</div>
           <div class="value">
-            i like building fast, reliable systems.
+            i build backend systems: fast paths, reliable ops, and clean interfaces.
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="label">Education</div>
+          <div class="value">
+            <span class="pill">Boston University</span>
+            <span class="muted">B.A. Computer Science · expected aug 2027</span>
+            <div class="meta" style="margin-top:6px;">
+              coursework: databases · computer organization · data structures · probability in computing · algorithms · full stack · software engineering
+            </div>
           </div>
         </div>
 
         <div class="row">
           <div class="label">Focus</div>
           <div class="value links focus">
-            <span class="pill">Java</span>
-            <span class="pill">Python</span>
-            <span class="pill">C++</span>
+            <span class="pill">Backend Systems</span>
             <span class="pill">Distributed Systems</span>
             <span class="pill">Low-latency</span>
+            <span class="pill">Java</span>
+            <span class="pill">Python</span>
+            <span class="pill">TypeScript</span>
+            <span class="pill">C++</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="label">Experience</div>
+          <div class="value grid">
+            <div class="item">
+              <div class="itemTop">
+                <strong>cvs health</strong>
+                <span class="meta">innotech software engineer intern (incoming)</span>
+                <span class="meta">· may 2026 → aug 2026 · woonsocket, ri (hybrid)</span>
+              </div>
+              <div class="metrics">backend engineering + enterprise-scale systems (aetna / cvs health).</div>
+            </div>
+
+            <div class="item">
+              <div class="itemTop">
+                <strong>pixeltools</strong>
+                <span class="meta">founder · backend software engineer</span>
+                <span class="meta">· jan 2025 → present · boston, ma</span>
+              </div>
+              <div class="metrics">$3k mrr · 100+ active subscribers · 40k+ weekly api requests · 99% uptime · 200ms operator workflows</div>
+              <div class="meta">throughput: 182 → 294 trades/hr via real-time valuation + auto-execution; async i/o (asyncio/httpx), retries/backoff, monitoring, caching/batching.</div>
+            </div>
+
+            <div class="item">
+              <div class="itemTop">
+                <strong>university of california</strong>
+                <span class="meta">research assistant</span>
+                <span class="meta">· jul 2025 → sep 2025 · remote</span>
+              </div>
+              <div class="meta">flask + numpy backend, real-time visualization, json export pipelines; rest apis for modeling + parameter optimization on experimental datasets.</div>
+            </div>
+
+            <div class="item">
+              <div class="itemTop">
+                <strong>university of california</strong>
+                <span class="meta">teaching assistant — engineering programming</span>
+                <span class="meta">· jan 2025 → may 2025 · merced, ca</span>
+              </div>
+              <div class="metrics">700+ python/c++ labs graded (90 students) · 12 hrs/wk support · 240+ debugging issues resolved · 94% positive feedback</div>
+            </div>
+
+            <div class="item">
+              <div class="itemTop">
+                <strong>bay valley tech</strong>
+                <span class="meta">software development intern</span>
+                <span class="meta">· aug 2023 → jan 2024 · remote</span>
+              </div>
+              <div class="metrics">40% faster loads for 100+ daily users · 31 prs reviewed · turnaround 26h → 15h · coverage 25% → 70% (+40 tests)</div>
+              <div class="meta">flask service with server-side rendering + caching; unit/integration tests.</div>
+            </div>
           </div>
         </div>
 
         <div class="row">
           <div class="label">Projects</div>
           <div class="value grid">
-            <div class="project">
-              <a href="https://github.com/andynuisud/Game-Trading-Bot" target="_blank" rel="noreferrer">asset trading system</a>
-              <span class="metrics">— 100K+ trades · &lt;200ms latency · ~112 users · 8.4% avg margin</span>
+            <div class="item">
+              <div class="itemTop">
+                <a href="https://github.com/andynuisud/Backend-Banking-System" target="_blank" rel="noreferrer"><strong>backend banking system</strong></a>
+                <span class="stack">java · spring boot · sql · redis</span>
+              </div>
+              <div class="meta">rest api with dto validation, spring data jpa, jwt role-based access control.</div>
+              <div class="metrics">5,000+ concurrent transactions · 84ms latency under load (redis caching + indexing)</div>
             </div>
-            <div class="project">
-              <a href="https://github.com/andynuisud/Outfit-Matcher" target="_blank" rel="noreferrer">outfit matcher ai</a>
-              <span class="metrics">— scraped 1,482 depop listings · 57 tests · 96.4% attr. extraction</span>
-            </div>
-            <div class="project">
-              <a href="https://github.com/andynuisud/Line-Following-Robot" target="_blank" rel="noreferrer">self-driving robot</a>
-              <span class="metrics">— recovery 61.2% → 79.5% · failures −22.4% · &lt;15s avg / 2 trials</span>
-            </div>
-            <div class="project">
-              <a href="https://github.com/andynuisud/Backend-Banking-System" target="_blank" rel="noreferrer">banking api</a>
-              <span class="metrics">— 98.7% tx success · JWT + JPA · 5k+ concurrent tx under load</span>
+
+            <div class="item">
+              <div class="itemTop">
+                <strong>meal tracker ai</strong>
+                <span class="stack">typescript · react native · firebase · openai api</span>
+              </div>
+              <div class="meta">mobile app using vision model + firestore to extract nutrition data from labels; reduces manual entry + errors.</div>
             </div>
           </div>
         </div>
 
         <div class="row">
-          <div class="label">Roles</div>
-          <div class="value grid">
-            <div><span class="pill">Founder @ PixelTools LLC</span> <span class="muted">· Jan 2025 → present</span></div>
-            <div><span class="pill">TA — Engr. Programming</span> <span class="muted">· Jan 2025 → May 2025</span></div>
-            <div><span class="pill">Software Dev Intern @ BVT</span> <span class="muted">· Aug 2023 → Jan 2024</span></div>
+          <div class="label">Awards</div>
+          <div class="value">
+            <span class="pill">hpe codewars</span>
+            <span class="muted">3rd place (top 1.5% of 50+ groups) · 2023</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="label">Skills</div>
+          <div class="value links focus">
+            <span class="pill">Spring Boot</span>
+            <span class="pill">Flask</span>
+            <span class="pill">FastAPI</span>
+            <span class="pill">React Native</span>
+            <span class="pill">PostgreSQL</span>
+            <span class="pill">Redis</span>
+            <span class="pill">Docker</span>
+            <span class="pill">Kubernetes</span>
+            <span class="pill">GitHub Actions</span>
+            <span class="pill">Kafka</span>
           </div>
         </div>
 
@@ -194,5 +267,80 @@
       </footer>
     </main>
   </div>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Copy email
+    (function () {
+      const email = "anuisud@bu.edu";
+      const status = document.getElementById("status");
+      const btn = document.getElementById("copyEmail");
+      if (!btn) return;
+
+      btn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        try {
+          await navigator.clipboard.writeText(email);
+          status.textContent = "copied: " + email;
+          setTimeout(() => (status.textContent = ""), 1800);
+        } catch {
+          // Fallback: open mail client
+          window.location.href = "mailto:" + email;
+        }
+      });
+    })();
+
+    // Lightweight starfield (optional). Disabled if prefers-reduced-motion.
+    (function () {
+      const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const canvas = document.getElementById("starfield");
+      if (!canvas || reduceMotion) return;
+
+      const ctx = canvas.getContext("2d");
+      let w, h, dpr;
+      let stars = [];
+      const STAR_COUNT = 140;
+
+      function resize() {
+        dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+        w = canvas.width = Math.floor(window.innerWidth * dpr);
+        h = canvas.height = Math.floor(window.innerHeight * dpr);
+        canvas.style.width = window.innerWidth + "px";
+        canvas.style.height = window.innerHeight + "px";
+        stars = Array.from({ length: STAR_COUNT }, () => ({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: (Math.random() * 1.2 + 0.4) * dpr,
+          v: (Math.random() * 0.25 + 0.05) * dpr,
+          a: Math.random() * 0.7 + 0.15
+        }));
+      }
+
+      function tick() {
+        ctx.clearRect(0, 0, w, h);
+        // draw stars
+        for (const s of stars) {
+          s.y += s.v;
+          if (s.y > h + 10) {
+            s.y = -10;
+            s.x = Math.random() * w;
+          }
+          ctx.globalAlpha = s.a;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue("--muted").trim() || "#6b7280";
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(tick);
+      }
+
+      window.addEventListener("resize", resize, { passive: true });
+      resize();
+      tick();
+    })();
+  </script>
 </body>
 </html>
